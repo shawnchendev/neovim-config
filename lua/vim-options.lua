@@ -11,4 +11,4 @@ vim.o.scrolloff = 999
 vim.o.breakindent = true
 
 vim.keymap.set('n', '<leader>[', ':Ex<cr>')
-vim.keymap.set('n', '<C-ff>', ':Format<cr>')
+vim.keymap.set('n', '<C-f>', ':Format<cr>')
