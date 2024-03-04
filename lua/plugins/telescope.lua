@@ -13,6 +13,7 @@ return {
 				})
 			end
 			vim.keymap.set("n", "<leader>f/", telescope_live_grep_open_files, { desc = "[S]earch [/] in Open Files" })
+			vim.keymap.set("n", "<leader>b", builtin.buffers, { desc = "Open current [B]uffer" })
 			vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
 			vim.keymap.set("n", "<leader>p", builtin.git_files, { desc = "Search [G]it [F]iles" })
 			vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })

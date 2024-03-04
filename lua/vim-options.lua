@@ -60,11 +60,4 @@ vim.opt.inccommand = 'split'
 -- Show which line your cursor is on
 vim.opt.cursorline = true
 
--- Minimal number of screen lines to keep above and below the cursor.
--- vim.opt.scrolloff = 10
-
-vim.keymap.set("n", "<leader>[", ":Ex<cr>")
-vim.keymap.set("n", "<C-f>", ":Format<cr>")
-
-
 

@@ -1,6 +1,10 @@
 return {
   {
     "tpope/vim-fugitive",
+    config = function()
+      vim.keymap.set("n", "<leader>gd", ":Gdiffsplit<CR>", {})
+      vim.keymap.set("n", "<leader>gl", ":Git log -p --follow -- %<CR>", {})
+    end
   },
   {
     "lewis6991/gitsigns.nvim",
