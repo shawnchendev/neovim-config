@@ -41,13 +41,10 @@ nnoremap("H", "^")
 -- Press 'U' for redo
 nnoremap("U", "<C-r>")
 
-
 -- go back to previous location
 vim.keymap.set("n", "<leader>[", ":Ex<cr>")
 -- Format code with leader key
 vim.keymap.set("n", "<C-f>", ":Format<cr>")
-
-
 
 -- Turn off highlighted results
 nnoremap("<leader>no", "<cmd>noh<cr>")
