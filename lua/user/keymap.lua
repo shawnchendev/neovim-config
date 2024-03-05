@@ -3,24 +3,23 @@ local vnoremap = require("user.keymap-utils").vnoremap
 local inoremap = require("user.keymap-utils").inoremap
 local tnoremap = require("user.keymap-utils").tnoremap
 local xnoremap = require("user.keymap-utils").xnoremap
-local harpoon_ui = require("harpoon.ui")
-local harpoon_mark = require("harpoon.mark")
+local harpoon = require("harpoon")
 
 nnoremap("S", function()
-	local cmd = ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>"
-	local keys = vim.api.nvim_replace_termcodes(cmd, true, false, true)
-	vim.api.nvim_feedkeys(keys, "n", false)
+  local cmd = ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>"
+  local keys = vim.api.nvim_replace_termcodes(cmd, true, false, true)
+  vim.api.nvim_feedkeys(keys, "n", false)
 end)
 
 -- Open Spectre for global find/replace
 nnoremap("<leader>S", function()
-	require("spectre").toggle()
+  require("spectre").toggle()
 end)
 
 -- Open Spectre for global find/replace for the word under the cursor in normal mode
 -- TODO Fix, currently being overriden by Telescope
 nnoremap("<leader>sw", function()
-	require("spectre").open_visual({ select_word = true })
+  require("spectre").open_visual({ select_word = true })
 end, { desc = "Search current word" })
 
 -- Swap between last two buffers
@@ -56,42 +55,36 @@ nnoremap("<leader>no", "<cmd>noh<cr>")
 -- Harpoon keybinds --
 -- Open harpoon ui
 nnoremap("<leader>ho", function()
-	harpoon_ui.toggle_quick_menu()
+  harpoon.ui:toggle_quick_menu(harpoon:list())
 end)
 
 -- Add current file to harpoon
 nnoremap("<leader>ha", function()
-	harpoon_mark.add_file()
+  harpoon:list():append()
 end)
 
 -- Remove current file from harpoon
 nnoremap("<leader>hr", function()
-	harpoon_mark.rm_file()
-end)
-
--- Remove all files from harpoon
-nnoremap("<leader>hc", function()
-	harpoon_mark.clear_all()
+  harpoon:list():remove()
 end)
 
 -- Quickly jump to harpooned files
 nnoremap("<leader>1", function()
-	harpoon_ui.nav_file(1)
+  harpoon:list():select(1)
 end)
 
 nnoremap("<leader>2", function()
-	harpoon_ui.nav_file(2)
+  harpoon:list():select(2)
 end)
 
 nnoremap("<leader>3", function()
-	harpoon_ui.nav_file(3)
+  harpoon:list():select(3)
 end)
 
 nnoremap("<leader>4", function()
-	harpoon_ui.nav_file(4)
+  harpoon:list():select(4)
 end)
 
 nnoremap("<leader>5", function()
-	harpoon_ui.nav_file(5)
+  harpoon:list():select(5)
 end)
-
